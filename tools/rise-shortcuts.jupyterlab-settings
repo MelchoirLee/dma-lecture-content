@@ -1,0 +1,38 @@
+// JupyterLab keyboard-shortcut overrides for presenting.
+//
+// Problem: Jupyter's default Shift+Enter is `notebook:run-cell-and-select-next`.
+// The "select next" half is what moves you on -- when the next cell belongs to
+// the next slide, RISE follows the selection and the deck jumps forward the
+// instant the cell finishes. Mid-lecture that means you run a demo and never
+// see its output.
+//
+// Fix: disable that binding and point Shift+Enter at `notebook:run-cell`, which
+// runs the cell and leaves the selection (and therefore the slide) alone.
+// Advance deliberately with Space / Right / Down instead.
+//
+// Ctrl+Enter and Cmd+Enter are already bound to `notebook:run-cell` by default,
+// so they behave this way with or without this file.
+//
+// Installed by present.sh (into its isolated config dir) and by
+// .devcontainer/setup.sh (into the container's ~/.jupyter). Delete either copy
+// to get stock Shift+Enter behaviour back.
+{
+  "shortcuts": [
+    {
+      "command": "notebook:run-cell-and-select-next",
+      "keys": ["Shift Enter"],
+      "selector": ".jp-Notebook.jp-mod-editMode",
+      "disabled": true
+    },
+    {
+      "command": "notebook:run-cell",
+      "keys": ["Shift Enter"],
+      "selector": ".jp-Notebook.jp-mod-editMode"
+    },
+    {
+      "command": "notebook:run-cell",
+      "keys": ["Shift Enter"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus"
+    }
+  ]
+}
