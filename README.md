@@ -52,9 +52,6 @@ button** in that panel's toolbar to fill the screen.
 
 To close it, click the **×** on the slideshow panel's tab.
 
-> **Pressed Option+R and got an `r` typed into a cell?** You were still in edit
-> mode. Press `Esc` first, then try again.
-
 ---
 
 ## 3. Moving around a slideshow
