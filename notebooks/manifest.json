@@ -1,0 +1,299 @@
+[
+ {
+  "number": 1,
+  "title": "Overview of Tooling for Data Management and Analysis",
+  "file": "lecture-01-overview-of-tooling-for-data-management-and-analysis.ipynb",
+  "cells": 11,
+  "content": 9,
+  "demo": 0,
+  "exercise": 0
+ },
+ {
+  "number": 2,
+  "title": "Python Fundamentals",
+  "file": "lecture-02-python-fundamentals.ipynb",
+  "cells": 34,
+  "content": 14,
+  "demo": 0,
+  "exercise": 1
+ },
+ {
+  "number": 3,
+  "title": "Reading and Writing Files in Python",
+  "file": "lecture-03-reading-and-writing-files-in-python.ipynb",
+  "cells": 9,
+  "content": 2,
+  "demo": 0,
+  "exercise": 4
+ },
+ {
+  "number": 4,
+  "title": "Python Sequences, Dictionaries, and Sets",
+  "file": "lecture-04-python-sequences-dictionaries-and-sets.ipynb",
+  "cells": 92,
+  "content": 40,
+  "demo": 0,
+  "exercise": 6
+ },
+ {
+  "number": 5,
+  "title": "Functions and Functions as Arguments; Lambda",
+  "file": "lecture-05-functions-and-functions-as-arguments-lambda.ipynb",
+  "cells": 36,
+  "content": 14,
+  "demo": 0,
+  "exercise": 5
+ },
+ {
+  "number": 6,
+  "title": "Decorators",
+  "file": "lecture-06-decorators.ipynb",
+  "cells": 39,
+  "content": 13,
+  "demo": 0,
+  "exercise": 3
+ },
+ {
+  "number": 7,
+  "title": "Python Named Tuples and Classes",
+  "file": "lecture-07-python-named-tuples-and-classes.ipynb",
+  "cells": 35,
+  "content": 14,
+  "demo": 0,
+  "exercise": 2
+ },
+ {
+  "number": 8,
+  "title": "Iterators and Comprehensions",
+  "file": "lecture-08-iterators-and-comprehensions.ipynb",
+  "cells": 35,
+  "content": 17,
+  "demo": 0,
+  "exercise": 3
+ },
+ {
+  "number": 9,
+  "title": "Generators",
+  "file": "lecture-09-generators.ipynb",
+  "cells": 22,
+  "content": 8,
+  "demo": 0,
+  "exercise": 3
+ },
+ {
+  "number": 10,
+  "title": "Extracting Data from a Comma-Separated Values File",
+  "file": "lecture-10-extracting-data-from-a-comma-separated-values-file.ipynb",
+  "cells": 6,
+  "content": 1,
+  "demo": 0,
+  "exercise": 3
+ },
+ {
+  "number": 11,
+  "title": "Simple Descriptive Statistics",
+  "file": "lecture-11-simple-descriptive-statistics.ipynb",
+  "cells": 11,
+  "content": 4,
+  "demo": 0,
+  "exercise": 2
+ },
+ {
+  "number": 12,
+  "title": "Covariance and Correlation",
+  "file": "lecture-12-covariance-and-correlation.ipynb",
+  "cells": 25,
+  "content": 2,
+  "demo": 5,
+  "exercise": 5
+ },
+ {
+  "number": 13,
+  "title": "Linear Regression",
+  "file": "lecture-13-linear-regression.ipynb",
+  "cells": 35,
+  "content": 17,
+  "demo": 4,
+  "exercise": 5
+ },
+ {
+  "number": 14,
+  "title": "Logistic Regression",
+  "file": "lecture-14-logistic-regression.ipynb",
+  "cells": 33,
+  "content": 5,
+  "demo": 3,
+  "exercise": 1
+ },
+ {
+  "number": 15,
+  "title": "Introduction to NumPy",
+  "file": "lecture-15-introduction-to-numpy.ipynb",
+  "cells": 80,
+  "content": 33,
+  "demo": 1,
+  "exercise": 2
+ },
+ {
+  "number": 16,
+  "title": "Pandas Part 1",
+  "file": "lecture-16-pandas-part-1.ipynb",
+  "cells": 69,
+  "content": 4,
+  "demo": 0,
+  "exercise": 63
+ },
+ {
+  "number": 17,
+  "title": "Pandas Part 2",
+  "file": "lecture-17-pandas-part-2.ipynb",
+  "cells": 32,
+  "content": 0,
+  "demo": 0,
+  "exercise": 30
+ },
+ {
+  "number": 18,
+  "title": "Pandas Part 3",
+  "file": "lecture-18-pandas-part-3.ipynb",
+  "cells": 24,
+  "content": 0,
+  "demo": 0,
+  "exercise": 22
+ },
+ {
+  "number": 19,
+  "title": "Pandas Part 4",
+  "file": "lecture-19-pandas-part-4.ipynb",
+  "cells": 26,
+  "content": 1,
+  "demo": 0,
+  "exercise": 23
+ },
+ {
+  "number": 20,
+  "title": "Pandas Part 5: Indexes, Hierarchical Indexes, and Grouping",
+  "file": "lecture-20-pandas-part-5-indexes-hierarchical-indexes-and-grouping.ipynb",
+  "cells": 17,
+  "content": 1,
+  "demo": 0,
+  "exercise": 14
+ },
+ {
+  "number": 21,
+  "title": "Introduction to Databases",
+  "file": "lecture-21-introduction-to-databases.ipynb",
+  "cells": 37,
+  "content": 31,
+  "demo": 0,
+  "exercise": 2
+ },
+ {
+  "number": 22,
+  "title": "Introduction to SQLite",
+  "file": "lecture-22-introduction-to-sqlite.ipynb",
+  "cells": 88,
+  "content": 10,
+  "demo": 1,
+  "exercise": 64
+ },
+ {
+  "number": 23,
+  "title": "Subqueries and Views in SQLite",
+  "file": "lecture-23-subqueries-and-views-in-sqlite.ipynb",
+  "cells": 10,
+  "content": 0,
+  "demo": 0,
+  "exercise": 8
+ },
+ {
+  "number": 24,
+  "title": "Indexes in SQLite",
+  "file": "lecture-24-indexes-in-sqlite.ipynb",
+  "cells": 15,
+  "content": 1,
+  "demo": 0,
+  "exercise": 12
+ },
+ {
+  "number": 25,
+  "title": "Motivation for Database Design",
+  "file": "lecture-25-motivation-for-database-design.ipynb",
+  "cells": 11,
+  "content": 6,
+  "demo": 0,
+  "exercise": 3
+ },
+ {
+  "number": 26,
+  "title": "Relational Database Normalization",
+  "file": "lecture-26-relational-database-normalization.ipynb",
+  "cells": 34,
+  "content": 29,
+  "demo": 0,
+  "exercise": 3
+ },
+ {
+  "number": 27,
+  "title": "SQLite Constraints",
+  "file": "lecture-27-sqlite-constraints.ipynb",
+  "cells": 16,
+  "content": 0,
+  "demo": 0,
+  "exercise": 14
+ },
+ {
+  "number": 28,
+  "title": "SQLite Triggers",
+  "file": "lecture-28-sqlite-triggers.ipynb",
+  "cells": 11,
+  "content": 0,
+  "demo": 0,
+  "exercise": 9
+ },
+ {
+  "number": 29,
+  "title": "SQL Window Functions",
+  "file": "lecture-29-sql-window-functions.ipynb",
+  "cells": 16,
+  "content": 5,
+  "demo": 0,
+  "exercise": 9
+ },
+ {
+  "number": 30,
+  "title": "An Example of Normalization",
+  "file": "lecture-30-an-example-of-normalization.ipynb",
+  "cells": 13,
+  "content": 2,
+  "demo": 0,
+  "exercise": 9
+ },
+ {
+  "number": 31,
+  "title": "Text File Formats: XML and JSON",
+  "file": "lecture-31-text-file-formats-xml-and-json.ipynb",
+  "cells": 12,
+  "content": 2,
+  "demo": 0,
+  "exercise": 8
+ },
+ {
+  "number": 32,
+  "title": "Introduction to MongoDB",
+  "file": "lecture-32-introduction-to-mongodb.ipynb",
+  "cells": 126,
+  "content": 15,
+  "demo": 1,
+  "exercise": 3
+ },
+ {
+  "number": 33,
+  "title": "Graph Databases: Neo4j",
+  "file": "lecture-33-graph-databases-neo4j.ipynb",
+  "cells": 3,
+  "content": 1,
+  "demo": 0,
+  "exercise": 0
+ }
+]
