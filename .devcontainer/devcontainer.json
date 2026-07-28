@@ -1,0 +1,32 @@
+{
+  "name": "DMA Lectures — JupyterLab + RISE",
+
+  // A plain Python image, deliberately not an Anaconda/datascience one.
+  // Those bundle the JupyterLab extensions that break RISE (see setup.sh).
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postAttachCommand": "bash .devcontainer/start-jupyter.sh",
+
+  "forwardPorts": [8888],
+  "portsAttributes": {
+    "8888": {
+      "label": "JupyterLab (RISE)",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      // The Jupyter extension lets you edit the notebooks in the VS Code
+      // editor. It cannot run RISE — presenting happens in JupyterLab on the
+      // forwarded port. See README.
+      "extensions": ["ms-toolsai.jupyter", "ms-python.python"],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  },
+
+  "remoteUser": "vscode"
+}
