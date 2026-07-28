@@ -1,0 +1,21 @@
+# Runtime for the DMA lecture decks.
+#
+# Deliberately minimal. RISE's standalone app loads every JupyterLab extension
+# it can find, but its own bundle does not provide the `@jupyterlab/console`
+# shared module -- so extensions that need it (jupyter-widgets, pyviz/panel,
+# plotly, variableinspector) fail to initialise and the slideshow renders blank.
+# None of the lectures use those libraries, so the fix is simply not to install
+# them. Do not add them here without reading .devcontainer/setup.sh first.
+
+jupyterlab>=4.1.2,<5          # 4.1.2 is RISE's floor
+jupyterlab_rise>=0.43,<0.44
+ipykernel
+
+# Libraries the live-demo cells actually import
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+statsmodels
+pymongo
