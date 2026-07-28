@@ -74,8 +74,7 @@ Many slides hold real, runnable Python. Click a code cell, then:
 | `Shift`+`Enter` | Run the cell and **stay on the current slide** |
 | `Ctrl`+`Enter` or `Cmd`+`Enter` | Same thing |
 
-Running a cell will not skip you ahead — you move slides yourself with `Space`
-or `→`. Edit the code and re-run it as much as you like; it's your own copy and
+Edit the code and re-run it as much as you like; it's your own copy and
 you can't affect anyone else.
 
 ---
