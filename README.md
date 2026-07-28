@@ -40,8 +40,6 @@ from the `notebooks/` folder in the file browser on the left.
 
 ## 2. Turning a lecture into a slideshow
 
-Two steps, and the first one matters:
-
 ### Step 1 — press `Esc`
 
 This puts the notebook in *command mode*. If your cursor is blinking inside a
