@@ -93,12 +93,11 @@ notebook. These are meant to be run. Use `↓` to step through them.
 🧪 IN-CLASS EXERCISE
 Finding Primes
 
-Exercise link:  <paste URL here>
+Exercise link:  <PraireLearn URL here>
 ```
 
-These are **signposts, not the exercise**. The exercise itself lives elsewhere,
-and your instructor will give you the link during class. Don't try to do it
-inside the notebook.
+These are **signposts, not the exercise**. The exercise itself lives in PraireLearn,
+Don't try to do it inside the notebook.
 
 ---
 
