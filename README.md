@@ -97,7 +97,7 @@ Exercise link:  <PraireLearn URL here>
 ```
 
 These are **signposts, not the exercise**. The exercise itself lives in PraireLearn,
-Don't try to do it inside the notebook.
+don't try to do it inside the notebook.
 
 ---
 
@@ -118,7 +118,7 @@ Run that example's cells in order from the top — later cells usually depend on
 variables defined in earlier ones.
 
 **I broke a notebook.**
-`git checkout -- notebooks/` restores every lecture to its original state.
+`git checkout -- notebooks/` in a terminal instance restores every lecture to its original state.
 
 ---
 
@@ -133,11 +133,9 @@ jupyter lab
 
 One catch: your JupyterLab **must not** have the `jupyter-widgets`,
 `pyviz`/`panel`, `plotly`, or `variableinspector` extensions installed. RISE
-can't load alongside them and the slideshow comes up blank. Anaconda installs
-ship these by default — which is exactly why the codespace uses a clean Python
+can't load alongside them and the slideshow comes up blank. Anaconda installations
+ship these by default, which is why the codespace uses a clean Python
 image instead. If you're on Anaconda and hit a blank slideshow, use the
 codespace.
 
 ---
-
-*How these notebooks are generated and rebuilt: [MAINTAINING.md](MAINTAINING.md).*
