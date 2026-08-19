@@ -14,6 +14,22 @@ cd "$(dirname "$0")/.."
 
 PORT=8888
 
+# ---------------------------------------------------------------------------
+# MongoDB for Lecture 32. Runs in this container on the default port, which is
+# what MONGO_HOST points at. Data lives under $HOME so no root is needed and it
+# survives a JupyterLab restart.
+# ---------------------------------------------------------------------------
+if command -v mongod >/dev/null 2>&1; then
+  if ! pgrep -x mongod >/dev/null 2>&1; then
+    mkdir -p "${HOME}/.mongodb-data"
+    mongod --dbpath "${HOME}/.mongodb-data" \
+           --logpath "${HOME}/.mongodb-data/mongod.log" \
+           --bind_ip 127.0.0.1 --fork >/dev/null 2>&1 \
+      && echo "MongoDB started (127.0.0.1:27017)" \
+      || echo "WARNING: MongoDB failed to start; see ${HOME}/.mongodb-data/mongod.log"
+  fi
+fi
+
 if jupyter server list 2>/dev/null | grep -q ":${PORT}/"; then
   echo "JupyterLab already running:"
 else

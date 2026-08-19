@@ -53,6 +53,53 @@ cat > "${LABCONFIG}/page_config.json" <<'JSON'
 JSON
 
 # ---------------------------------------------------------------------------
+# MongoDB, for Lecture 32.
+#
+# The lecture connects with `MongoClient(os.getenv('MONGO_HOST'))` and seeds its
+# own data from sample_enrollments.csv, so an empty local server is all it needs
+# -- no dump to restore.
+#
+# Debian dropped MongoDB over its SSPL licence and no devcontainer Feature
+# publishes the server (only client tools), so this installs from MongoDB's own
+# apt repository, which does publish bookworm builds for amd64 and arm64.
+# ---------------------------------------------------------------------------
+if command -v mongod >/dev/null 2>&1; then
+  echo "==> MongoDB server already present"
+elif [ "$(dpkg --print-architecture)" != "amd64" ]; then
+  # MongoDB publishes mongodb-org-server for amd64 only on Debian; the arm64
+  # repo carries just client tools (mongosh, atlas-cli). GitHub Codespaces is
+  # amd64, so this only affects local devcontainers on Apple Silicon.
+  # Non-fatal on purpose: everything except Lecture 32's Mongo cells still works.
+  echo "==> Skipping MongoDB: no Debian server package for $(dpkg --print-architecture)"
+  echo "    Lecture 32's MongoDB cells will not run on this machine."
+else
+  echo "==> Installing MongoDB server"
+  if (
+    set -e
+    # --batch --yes: postCreateCommand runs without a TTY, and plain `gpg`
+    # tries to open /dev/tty and fails there.
+    curl -fsSL https://pgp.mongodb.com/server-7.0.asc \
+      | sudo gpg --batch --yes --dearmor \
+          -o /usr/share/keyrings/mongodb-server-7.0.gpg
+    echo "deb [ arch=amd64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] \
+https://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" \
+      | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list >/dev/null
+    # Refresh ONLY MongoDB's list. A plain `apt-get update` also re-reads the
+    # yarn repository that ships in this base image, whose signing key is
+    # missing -- that failure would abort the script under `set -e`.
+    sudo apt-get update -qq \
+      -o Dir::Etc::sourcelist="sources.list.d/mongodb-org-7.0.list" \
+      -o Dir::Etc::sourceparts="-" \
+      -o APT::Get::List-Cleanup="0"
+    sudo apt-get install -y -qq mongodb-org-server >/dev/null
+  ); then
+    echo "    $(mongod --version | head -1)"
+  else
+    echo "    WARNING: MongoDB install failed; Lecture 32's Mongo cells will not run."
+  fi
+fi
+
+# ---------------------------------------------------------------------------
 # Presenting shortcut: Shift+Enter should run a cell without advancing the
 # slide. See the header of the settings file for the reasoning.
 # ---------------------------------------------------------------------------
@@ -77,12 +124,18 @@ if missing:
 print("    python modules OK")
 PY
 
-if jupyter labextension list 2>&1 | grep -q "jupyterlab-rise.*enabled.*OK"; then
-  echo "    jupyterlab-rise labextension OK"
-else
-  echo "    WARNING: jupyterlab-rise labextension not reported enabled:"
-  jupyter labextension list 2>&1 | sed 's/^/      /'
-fi
+# `jupyter labextension list` colourises its output, so strip ANSI escapes
+# before matching or the greps silently never hit.
+LABEXT="$(jupyter labextension list 2>&1 | sed 's/\x1b\[[0-9;]*m//g')"
+
+for ext in jupyterlab-rise dma-rise-run-button; do
+  if echo "$LABEXT" | grep -q "${ext} v.* enabled OK"; then
+    echo "    ${ext} labextension OK"
+  else
+    echo "    WARNING: ${ext} labextension not reported enabled:"
+    echo "$LABEXT" | sed 's/^/      /'
+  fi
+done
 
 if jupyter server extension list 2>&1 | grep -q "jupyterlab_rise.*OK"; then
   echo "    jupyterlab_rise server extension OK"

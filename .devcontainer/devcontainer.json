@@ -5,6 +5,14 @@
   // Those bundle the JupyterLab extensions that break RISE (see setup.sh).
   "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
 
+  // JUPYTER_PATH makes the prebuilt per-cell Run button extension discoverable
+  // (Jupyter reads `labextensions/` under each entry). MONGO_HOST is what
+  // Lecture 32 reads; mongod runs in this container on the default port.
+  "remoteEnv": {
+    "JUPYTER_PATH": "${containerWorkspaceFolder}/tools/jupyter-data",
+    "MONGO_HOST": "mongodb://127.0.0.1:27017"
+  },
+
   "postCreateCommand": "bash .devcontainer/setup.sh",
   "postAttachCommand": "bash .devcontainer/start-jupyter.sh",
 
