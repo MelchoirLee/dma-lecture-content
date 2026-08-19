@@ -1,0 +1,24 @@
+{
+    "bookList" : [
+      {
+        "title" : "The Cat in the Hat",
+        "author" : "Dr. Seuss",
+        "price" : 4.99
+      },
+      {
+        "title" : "Ender's Game",
+        "author" : "Orson Scott Card",
+        "price" : 8.99
+      },
+      {
+        "title" : "Prey",
+        "author" : "Michael Crichton",
+        "price" : 6.95
+      },
+      {
+        "title" : "Honor Harrington",
+        "author" : "David Weber",
+        "price" : 8.75
+      }
+    ]
+  }

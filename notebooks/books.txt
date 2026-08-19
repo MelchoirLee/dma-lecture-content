@@ -1,0 +1,5 @@
+             title            author  price
+The Cat in the Hat         Dr. Seuss   4.99
+      Ender's Game  Orson Scott Card   8.99
+              Prey  Michael Crichton   6.95
+  Honor Harrington       David Weber   8.75
