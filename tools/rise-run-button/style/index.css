@@ -1,0 +1,105 @@
+/*
+ * Run button for RISE slideshows.
+ *
+ * Hidden by default so this extension changes nothing about the ordinary
+ * notebook editor -- JupyterLab already has its own toolbar there, and a second
+ * button would just be clutter. It appears only inside a slideshow.
+ *
+ * `rise-enabled` is the class RISE puts on <body> when the deck starts. The
+ * `:has(.reveal)` rule is a belt-and-braces fallback in case that class ever
+ * changes upstream.
+ */
+
+.dma-run-button {
+  display: none;
+}
+
+body.rise-enabled .dma-run-button,
+body:has(.reveal) .dma-run-button {
+  display: flex;
+}
+
+/* Anchor for the absolutely-positioned button. */
+body.rise-enabled .jp-CodeCell,
+body:has(.reveal) .jp-CodeCell {
+  position: relative;
+}
+
+/*
+ * The button sits where the `[ ]:` execution prompt would be -- the same place
+ * Colab and VS Code put it. Hiding the prompt avoids overlapping text; the
+ * button takes over its job of showing that a cell is running (see the busy
+ * state below).
+ */
+body.rise-enabled .jp-CodeCell .jp-InputPrompt,
+body:has(.reveal) .jp-CodeCell .jp-InputPrompt {
+  visibility: hidden;
+}
+
+.dma-run-button {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  z-index: 12;
+
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  border: 1.5px solid #57068c; /* NYU violet, matching the deck theme */
+  border-radius: 50%;
+  background: #ffffff;
+  color: #57068c;
+
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, transform 0.12s ease;
+}
+
+.dma-run-button svg {
+  /* Nudge the triangle so it looks centred inside the circle. */
+  margin-left: 2px;
+}
+
+.dma-run-button:hover {
+  background: #57068c;
+  color: #ffffff;
+}
+
+.dma-run-button:active {
+  transform: scale(0.92);
+}
+
+.dma-run-button:focus-visible {
+  outline: 2px solid #b26a00;
+  outline-offset: 2px;
+}
+
+/* Busy state: the prompt is hidden, so the button carries the signal. */
+.dma-run-button.dma-run-button-busy {
+  cursor: progress;
+  border-color: #b26a00;
+  color: #b26a00;
+  animation: dma-run-pulse 1s ease-in-out infinite;
+}
+
+@keyframes dma-run-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dma-run-button {
+    transition: none;
+  }
+  .dma-run-button.dma-run-button-busy {
+    animation: none;
+  }
+}

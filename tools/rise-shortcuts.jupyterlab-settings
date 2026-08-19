@@ -16,8 +16,35 @@
 // Installed by present.sh (into its isolated config dir) and by
 // .devcontainer/setup.sh (into the container's ~/.jupyter). Delete either copy
 // to get stock Shift+Enter behaviour back.
+//
+// Second problem, same cause: Left/Right arrows skipped whole slides.
+//
+// JupyterLab binds ArrowRight to `notebook:move-cursor-heading-below-or-expand`
+// (and ArrowLeft to the -above- variant) in command mode. Those jump the active
+// cell to the next/previous *markdown heading*, and RISE follows the active
+// cell to whichever slide it lives on. Content slides start with a `##`
+// heading, but the exercise cards and live-example banners are pure HTML with no
+// heading -- so the arrows leapt straight over them. Measured on Lecture 4:
+// one keypress went from slide 20 to 22, skipping the "Fruits Beginning with a
+// Vowel" exercise entirely. `Space` was unaffected because it never reaches
+// Lumino's keymap.
+//
+// Disabling both lets reveal.js handle the arrows natively, so they step one
+// slide at a time like Space does.
 {
   "shortcuts": [
+    {
+      "command": "notebook:move-cursor-heading-below-or-expand",
+      "keys": ["ArrowRight"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:move-cursor-heading-above-or-collapse",
+      "keys": ["ArrowLeft"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
     {
       "command": "notebook:run-cell-and-select-next",
       "keys": ["Shift Enter"],
