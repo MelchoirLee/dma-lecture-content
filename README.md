@@ -38,14 +38,32 @@ When it finishes, the terminal prints a box like this:
   │  DMA lecture decks — JupyterLab + RISE                       │
   └──────────────────────────────────────────────────────────────┘
 
-  Open:  http://127.0.0.1:8888/?token=…
+  Open:  https://<your-codespace>-8888.app.github.dev/lab?token=…
 ```
 
 **Click that link.** JupyterLab opens in a new browser tab. Open any lecture
 from the `notebooks/` folder in the file browser on the left.
 
-> **Lost the link?** Run `bash .devcontainer/start-jupyter.sh` in the terminal.
-> You can also find it under the **Ports** tab (port 8888).
+> **Lost the link?** Run this in the terminal:
+>
+> ```bash
+> bash .devcontainer/start-jupyter.sh
+> ```
+>
+> Add a lecture number to have the link open that lecture directly, instead of
+> leaving you in the file browser:
+>
+> ```bash
+> bash .devcontainer/start-jupyter.sh 29
+> ```
+>
+> You can also find the server under the **Ports** tab (port 8888) — but use the
+> printed link if you can, because it carries the `?token=…` the server needs.
+
+> **The link must start with `https://` and end with `?token=…`.** If you are
+> looking at a `http://127.0.0.1:8888` or `http://codespaces-…:8888` address,
+> that is the address *inside* the container and your browser cannot reach it.
+> Re-run the command above to get the real one.
 
 ---
 
