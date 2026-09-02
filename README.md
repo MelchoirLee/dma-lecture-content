@@ -28,10 +28,13 @@ against the course copy.
 From your fork, click **Code → Codespaces → Create codespace on main**.
 
 The codespace installs everything for you — Python, JupyterLab, and the
-libraries the lectures use. It takes a couple of minutes the first time.
+libraries the lectures use. When the codespace itself loads, plz don't 
+click anything; allow the terminal to automatically initiate its main 
+devcontainer process, which can take close to ten minutes.
 **You never need to install anything or run a `pip` command.**
 
-When it finishes, the terminal prints a box like this:
+When it finishes, the terminal prints a box like this (make sure to scroll
+to get the full terminal output):
 
 ```
   ┌──────────────────────────────────────────────────────────────┐
@@ -42,7 +45,9 @@ When it finishes, the terminal prints a box like this:
 ```
 
 **Click that link.** JupyterLab opens in a new browser tab. Open any lecture
-from the `notebooks/` folder in the file browser on the left.
+from the `notebooks/` folder in the file browser on the left. BTW, you should
+only have to deal with this ~10-min wait time once, when you create the codespace.
+After that, the history should persist.
 
 > **Lost the link?** Run this in the terminal:
 >
