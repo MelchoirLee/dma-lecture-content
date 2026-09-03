@@ -227,15 +227,39 @@ have committed and pushed.
 You don't have to use Codespaces:
 
 ```bash
-pip install -r requirements.txt
-jupyter lab
+bash present.sh          # opens the file browser
+bash present.sh 29       # opens lecture 29 directly
 ```
 
-One catch: your JupyterLab **must not** have the `jupyter-widgets`,
+This installs everything into a private `.venv/` (not your system or Anaconda
+Python) and points Jupyter at an isolated `.jupyter-rise/` config directory
+instead of your real `~/.jupyter`, so it can't affect any other Jupyter
+project on your machine and vice versa. It's idempotent — if a server is
+already running on port 8888 it just prints that server's link instead of
+starting a second one — so re-run it any time you want the URL again.
+
+The script prints a link like:
+
+```
+Open:  http://127.0.0.1:8888/lab?token=…
+```
+
+Click it, open a lecture from `notebooks/`, then press `Esc` and
+`Option`+`R` (`Alt`+`R` on Windows/Linux) to enter the slideshow — same as
+section 2 above.
+
+If you have a local MongoDB server (`mongod`) installed, the script starts it
+automatically for Lecture 32; otherwise everything except that lecture's
+Mongo cells works fine.
+
+### Why not just `pip install -r requirements.txt && jupyter lab`?
+
+You can, but your JupyterLab **must not** have the `jupyter-widgets`,
 `pyviz`/`panel`, `plotly`, or `variableinspector` extensions installed. RISE
-can't load alongside them and the slideshow comes up blank. Anaconda installations
-ship these by default, which is why the codespace uses a clean Python
-image instead. If you're on Anaconda and hit a blank slideshow, use the
-codespace.
+can't load alongside them and the slideshow comes up blank. Anaconda
+installations ship these by default, which is why both the codespace and
+`present.sh` use a clean Python environment instead. If you're on Anaconda
+and hit a blank slideshow running Jupyter directly, use `present.sh` (or the
+codespace) instead.
 
 ---
